@@ -4,12 +4,14 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
     <title>Тестовое</title>
     <link href="css/bootstrap.min.css" rel="stylesheet" type="text/css" media="all">
+    <link href="css/my.css" rel="stylesheet" type="text/css" media="all">
     <script src="js/jquery-2.2.1.min.js" type="text/javascript"></script>
     <script src="js/bootstrap.min.js" type="text/javascript"></script>
     <script src="js/my.js" type="text/javascript"></script>
   </head>
   <body>
     <!-- <form enctype="multipart/form-data" method="post" class="form-horizontal"> -->
+    <div class="form">
       <legend>Форма для ввода данных</legend>
         <?php
         for ($i=0; $i < 10; $i++) {
@@ -33,7 +35,8 @@
         <input type="radio" name="optionsRadios" id="optionsRadios2" value="option2">
         Опция два - это нечто другое. Выбрав ее, отменяете первую.
       </label> -->
-    </form>
+    </div>
+    <!-- </form> -->
 
 
 

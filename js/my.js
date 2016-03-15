@@ -16,12 +16,27 @@ $(document).ready(function(){
     for (var i = x.length - 1; i >= 0; i--) {
       arr.push(x[i].value);
     };
-    data = JSON.stringify(arr);
 
-    $.post('/response.php', data, myCallback);
+    data1 = JSON.stringify(arr);
+    // alert(data)  // получил ["1","2","3"]
+
+    $.ajax({
+      type: "POST",
+      url: 'response.php',
+      data: {d: data1},
+      success: myCallback,
+      dataType: JSON
+    });
+
+
+
+
+    // $.post('response.php',
+    //   data=data1,
+    //    myCallback);
 
     function myCallback( returnedData ) {
-      alert(returnedData);
+      // alert(returnedData);// получил array(0){}
     }
 
 
