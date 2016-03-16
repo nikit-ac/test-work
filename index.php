@@ -11,35 +11,35 @@
   </head>
   <body>
     <!-- <form enctype="multipart/form-data" method="post" class="form-horizontal"> -->
-    <div class="form">
-      <legend>Форма для ввода данных</legend>
-        <?php
-        for ($i=0; $i < 10; $i++) {
-          echo  '<p><input type="text" name=phrase'.$i.'></p>';
-        }
-        ?>
-      <button class="btn btn-primary" id="send-ajax">Добавить</button>
+    <div class="container">
+      <form>
+        <legend>Форма для ввода данных</legend>
+          <?php
+          for ($i=0; $i < 10; $i++) {
+            echo  '<p><input type="text" onfocus="hideMessage()" name=phrase'.$i.'></p>';
+          }
+          ?>
+        <button class="btn btn-inverse" type="reset" onclick="hideMessage()">Очитсить</button>
+        <button class="btn btn-primary" onclick="sendAjax()" id="send-ajax">Добавить</button>
+        <span class="text-success hide-span" id="data-success">Данные добавлены</span>
+        <span class="text-danger hide-span" id="data-error">Ошибка добавления данных</span>
+      </form>
 
       <p>Либо выберете файл .csv</p>
-      <p><input type="file" name="file-csv" accept=".csv" >
-      <input type="button" value="Отправить"></p>
+      <form action="load.php" method="post" enctype="multipart/form-data">
+      <input type="file" name="uploadfile" accept=".csv">
+      <input type="submit" value="Загрузить"></form>
 
-      <p><input type="radio" name="browser" value="1" checked>Точное совпадение</p>
-      <p><input type="radio" name="browser" value="2">Частичное совпадение</p>
-
-     <!--  <label class="radio">
-        <input type="radio" name="optionsRadios" id="optionsRadios1" value="option1" checked>
-         А вот вам опция номер один - очень крутая штука.
-      </label>
       <label class="radio">
-        <input type="radio" name="optionsRadios" id="optionsRadios2" value="option2">
-        Опция два - это нечто другое. Выбрав ее, отменяете первую.
-      </label> -->
+        <p><input type="radio" name="browser" value="1" checked>Точное совпадение</p>
+        <p><input type="radio" name="browser" value="2">Частичное совпадение</p>
+      </label>
+
     </div>
-    <!-- </form> -->
 
 
 
 
   </body>
 </html>
+

@@ -1,60 +1,37 @@
-$(document).ready(function(){
+function sendAjax(){
 
-  $('#send-ajax').click( function() {
+    this.event.preventDefault();
 
     x = $('[name ^= "phrase"]') ;
 
-
-    function objToString(o) {//===============Удалить
-      var s = '{\n';
-          for (var p in o)
-              s += '    "' + p + '": "' + o[p] + '"\n';
-          return s + '}';
-    }
-
     var arr = [];
-    for (var i = x.length - 1; i >= 0; i--) {
+    for (var i = 0; i < x.length; i++) {
       arr.push(x[i].value);
     };
 
-    data1 = JSON.stringify(arr);
-    // alert(data)  // получил ["1","2","3"]
+    data = JSON.stringify(arr);
 
     $.ajax({
       type: "POST",
-      url: 'response.php',
-      data: {d: data1},
+      url: 'ajax.php',
+      data: {data: data},
       success: myCallback,
-      dataType: JSON
     });
 
-
-
-
-    // $.post('response.php',
-    //   data=data1,
-    //    myCallback);
-
     function myCallback( returnedData ) {
-      // alert(returnedData);// получил array(0){}
-    }
+      if (returnedData == 1) {
+        $("#data-success").show();
+      } else{
+        $("#data-error").show();
+      };
+    };
+};
+
+function hideMessage(){
+  $("#data-success").hide();
+  $("#data-error").hide();
+
+}
 
 
 
-
-
-
-
-    // $.ajax({
-    //   type: 'POST',
-    //   url: 'response.php',
-    //   data: 'name=Andrew&nickname=Aramis',
-
-    //   success: function(data) {
-    //     $('.results').html(data);
-    //   }
-    // });
-
-  });
-
-});

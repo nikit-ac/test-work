@@ -1,16 +1,14 @@
 <?php
-  $data = json_decode($_POST[d]);
-  // $data = explode(",", $data1);
-  // $data1 = substr($data1, 1);
-  // $data1 = substr($data1, 0, -1);
-
-// echo var_dump($data1);
+  $data = json_decode($_POST[data]);
+  $answer = 0;
   $fp = fopen('file.csv', 'a');
   foreach ($data as $phrase) {
     if ($phrase) {
       $phrase = array($phrase);
       fputcsv($fp, $phrase);
+      $answer = 1;
     }
   }
   fclose($fp);
+  echo $answer;
 ?>
