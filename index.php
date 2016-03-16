@@ -29,11 +29,15 @@
       <form action="load.php" method="post" enctype="multipart/form-data">
       <input type="file" name="uploadfile" accept=".csv">
       <input type="submit" value="Загрузить"></form>
-
-      <label class="radio">
-        <p><input type="radio" name="browser" value="1" checked>Точное совпадение</p>
-        <p><input type="radio" name="browser" value="2">Частичное совпадение</p>
-      </label>
+      <b><?= $_GET['answer'] ?></b>
+      <hr/>
+      <form action="handler.php" method="post" enctype="multipart/form-data">
+        <label class="radio">
+          <p><input type="radio" name="param" value="full" checked>Точное совпадение</p>
+          <p><input type="radio" name="param" value="part">Частичное совпадение</p>
+        </label>
+        <input type="submit" value="Удалить дубликаты">
+      </form>
 
     </div>
 
