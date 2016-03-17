@@ -1,4 +1,7 @@
 .hide-span{
   display: none;
+}
 
+.brd{
+  border: 1px grey;
 }

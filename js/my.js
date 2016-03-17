@@ -1,4 +1,4 @@
-function sendAjax(){
+function sendAjax () {
 
     this.event.preventDefault();
 
@@ -18,7 +18,7 @@ function sendAjax(){
       success: myCallback,
     });
 
-    function myCallback( returnedData ) {
+    function myCallback (returnedData) {
       if (returnedData == 1) {
         $("#data-success").show();
       } else{
@@ -27,11 +27,31 @@ function sendAjax(){
     };
 };
 
-function hideMessage(){
+function hideMessage () {
   $("#data-success").hide();
   $("#data-error").hide();
-
 }
 
+function showNumber () {
+  $("#text-diff").show(200);
+  $("#number-diff").show(200);
+}
+
+function hideNumber () {
+  $("#text-diff").hide(200);
+  $("#number-diff").hide(200);
+}
+
+function checkNumber (val) {
+  if ((val-Math.floor(val)==0) && val>0) {
+    $("#text-diff").attr("class", "success");
+    $("#text-diff .help-inline").hide();
+    $("#del").removeAttr("disabled");
 
 
+  } else{
+    $("#text-diff").attr("class", "error");
+    $("#text-diff .help-inline").show(200);
+    $("#del").attr("disabled" , "disabled");
+  };
+}
